@@ -1,25 +1,22 @@
 # Cards
 
-**TODO: Add description**
+### How to use
 
-## Installation
+Open an interactive elixir console with `iex -S mix` then:
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
-
-  1. Add `cards` to your list of dependencies in `mix.exs`:
+  - Step by step do the following:
 
     ```elixir
-    def deps do
-      [{:cards, "~> 0.1.0"}]
-    end
+    iex> deck = Cards.create_deck
+    iex> deck = Cards.shuffle(deck)
+    iex> {hand, deck} = Cards.deal(deck, 1)
+    iex> hand # Then you have your hand cards
+
     ```
 
-  2. Ensure `cards` is started before your application:
+  - You can also use the pipe operator with just one line:
 
     ```elixir
-    def application do
-      [applications: [:cards]]
-    end
+    iex> {hand, deck} = Cards.create_deck |> Cards.shuffle |> Cards.deal(2)
+    iex> hand # Then you have your hand cards
     ```
-
-# cards
